@@ -25,6 +25,9 @@
 @property (nonatomic,readonly) UIScrollView *scrollView;
 @property (nonatomic,readonly) UIPageControl *pageControl;
 @property (nonatomic,assign) NSInteger currentPage;
+
+@property (nonatomic,assign) BOOL isAutoPlay;
+
 @property (nonatomic,assign,setter = setDataource:) id<VCyclePicPlayerDataSource> dataSource;
 @property (nonatomic,assign,setter = setDelegate:) id<VCyclePicPlayerDelegate> delegate;
 

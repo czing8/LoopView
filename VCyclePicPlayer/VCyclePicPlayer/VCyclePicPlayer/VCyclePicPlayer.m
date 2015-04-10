@@ -8,6 +8,16 @@
 
 #import "VCyclePicPlayer.h"
 
+@interface VCyclePicPlayer (){
+    NSTimer *_timer;
+}
+
+
+#define kTimerInterval  5
+
+@end
+
+
 @implementation VCyclePicPlayer
 
 //用代码创建VCyclePicPlayer时，调用init(初始化),但是SB不走init函数。
@@ -62,6 +72,7 @@
 - (void)setDataource:(id<VCyclePicPlayerDataSource>)dataSource{
     _dataSource = dataSource;
     [self reloadData];
+    [self autoPlayPic];
 }
 
 - (void)reloadData{
@@ -73,8 +84,7 @@
     [self loadData];
 }
 
-- (void)loadData
-{
+- (void)loadData {
     _pageControl.currentPage = _curPage;
     
     NSLog(@"_curPage:%ld", (long)_curPage);
@@ -100,7 +110,6 @@
     [_scrollView setContentOffset:CGPointMake(_scrollView.frame.size.width, 0)];
 }
 
-
 - (void)getDisplayImagesWithCurpage:(NSInteger)page {
     
     NSInteger pre = [self validPageValue:_curPage-1];
@@ -121,6 +130,7 @@
 - (NSInteger)validPageValue:(NSInteger)value {
     
     if(value == -1) value = _totalPages - 1;
+    
     if(value == _totalPages) value = 0;
     
     return value;
@@ -150,6 +160,19 @@
         }
     }
 }
+
+- (void)autoPlayPic{
+    if (_isAutoPlay) {
+        _timer=[NSTimer scheduledTimerWithTimeInterval:kTimerInterval target:self selector:@selector(playPic:) userInfo:nil repeats:YES];
+        [_timer fire];
+    }
+}
+
+- (void)playPic:(id)sender{
+    [self loadData];
+    _curPage = [self validPageValue:_curPage + 1];
+}
+
 
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)aScrollView {
