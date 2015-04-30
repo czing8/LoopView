@@ -12,44 +12,42 @@
     NSTimer *_timer;
 }
 
-
-#define kTimerInterval  5
+#define kTimerInterval  6
 
 @end
-
 
 @implementation VCyclePicPlayer
 
 //用代码创建VCyclePicPlayer时，调用init(初始化),但是SB不走init函数。
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame{
+    
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
-        _scrollView.delegate = self;
-        _scrollView.contentSize = CGSizeMake(self.bounds.size.width * 3, self.bounds.size.height);
-        _scrollView.showsHorizontalScrollIndicator = NO;
-        _scrollView.contentOffset = CGPointMake(self.bounds.size.width, 0);
-        _scrollView.pagingEnabled = YES;
-        [self addSubview:_scrollView];
-        
-        CGRect rect = self.bounds;
-        rect.origin.y = rect.size.height - 30;
-        rect.size.height = 30;
-        _pageControl = [[UIPageControl alloc] initWithFrame:rect];
-        _pageControl.userInteractionEnabled = NO;
-        
-        [self addSubview:_pageControl];
-        
-        _curPage = 0;
+        [self initialization];
     }
     return self;
 }
 
+/*
+//Storyborad 直接调用VCyclePicPlayer会从这个函数开始（初始化）eg,在4.7寸里获取的是320，而不是375，so initWithCoder获取的是自动适配前的元素。
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super initWithCoder:aDecoder]) {
+        [self initialization];
+    }
+    return self;
+}
+*/
 
 //Storyborad 直接调用VCyclePicPlayer会从这个函数开始（初始化）
 - (void)layoutSubviews{
+    [self initialization];
+}
+
+- (void) initialization{
+    _curPage = 0;
+    _isAutoPlay = YES;
+    
     _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
     _scrollView.delegate = self;
     _scrollView.contentSize = CGSizeMake(self.bounds.size.width * 3, self.bounds.size.height);
@@ -65,18 +63,17 @@
     _pageControl.userInteractionEnabled = NO;
     
     [self addSubview:_pageControl];
-    
-    _curPage = 0;
 }
 
-- (void)setDataource:(id<VCyclePicPlayerDataSource>)dataSource{
-    _dataSource = dataSource;
+- (void)setDelegate:(id<VCyclePicPlayerDelegate>)delegate{
+    _delegate = delegate;
+    
     [self reloadData];
     [self autoPlayPic];
 }
 
 - (void)reloadData{
-    _totalPages = [_dataSource numberOfPages];
+    _totalPages = [_delegate numberOfPages];
     if (_totalPages == 0) {
         return;
     }
@@ -121,11 +118,10 @@
     
     [_curViews removeAllObjects];
     
-    [_curViews addObject:[_dataSource pageAtIndex:pre]];
-    [_curViews addObject:[_dataSource pageAtIndex:page]];
-    [_curViews addObject:[_dataSource pageAtIndex:last]];
+    [_curViews addObject:[_delegate pageAtIndex:pre]];
+    [_curViews addObject:[_delegate pageAtIndex:page]];
+    [_curViews addObject:[_delegate pageAtIndex:last]];
 }
-
 
 - (NSInteger)validPageValue:(NSInteger)value {
     
@@ -141,7 +137,6 @@
     if ([_delegate respondsToSelector:@selector(cyclePicPlayer:atIndex:)]) {
         [_delegate cyclePicPlayer:self atIndex:_curPage];
     }
-    
 }
 
 - (void)setViewContent:(UIView *)view atIndex:(NSInteger)index
@@ -154,7 +149,6 @@
             UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                         action:@selector(handleTap:)];
             [v addGestureRecognizer:singleTap];
-//            [singleTap release];
             v.frame = CGRectOffset(v.frame, v.frame.size.width * i, 0);
             [_scrollView addSubview:v];
         }
@@ -162,19 +156,37 @@
 }
 
 - (void)autoPlayPic{
+    [_timer invalidate];
+    _timer = nil;
+
     if (_isAutoPlay) {
         _timer=[NSTimer scheduledTimerWithTimeInterval:kTimerInterval target:self selector:@selector(playPic:) userInfo:nil repeats:YES];
-        [_timer fire];
     }
 }
 
 - (void)playPic:(id)sender{
+    
+    if (_totalPages == 0)  return;
+
     [self loadData];
-    _curPage = [self validPageValue:_curPage + 1];
+
+    [_scrollView setContentOffset:CGPointMake(self.frame.size.width*2, 0) animated:YES];
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [_timer invalidate];
+    _timer = nil;
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    [self autoPlayPic];
 }
 
 
-#pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)aScrollView {
     int x = aScrollView.contentOffset.x;
     
@@ -194,17 +206,17 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)aScrollView {
     
     [_scrollView setContentOffset:CGPointMake(_scrollView.frame.size.width, 0) animated:YES];
-    
 }
 
 
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+//解决当父View释放时，当前视图因为被Timer强引用而不能释放的问题
+- (void)willMoveToSuperview:(UIView *)newSuperview
+{
+    if (!newSuperview) {
+        [_timer invalidate];
+        _timer = nil;
+    }
 }
-*/
+
 
 @end

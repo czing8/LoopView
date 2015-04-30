@@ -11,8 +11,11 @@
 
 #define kSCREEN_SIZE  [UIScreen mainScreen].bounds.size
 
-@interface ViewController () <VCyclePicPlayerDataSource, VCyclePicPlayerDelegate>
+@interface ViewController () <VCyclePicPlayerDelegate>
 @property (weak, nonatomic) IBOutlet VCyclePicPlayer *cyclePicPlayer;
+
+@property (nonatomic, strong) NSArray * images;
+
 
 @end
 
@@ -20,32 +23,36 @@
 
 //delegate要在viewDidAppear里设置，优先级（印象：* * Storyboard）
 - (void)viewDidAppear:(BOOL)animated{
-    
-    _cyclePicPlayer.delegate = self;
-    _cyclePicPlayer.dataSource = self;
+    [super viewDidAppear:animated];
 
+    _cyclePicPlayer.delegate = self;
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    _cyclePicPlayer.delegate = self;   //多添加一次，不然第一页空白。
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _cyclePicPlayer.isAutoPlay = YES;
-    
+//    _cyclePicPlayer.isAutoPlay = YES;
+    _images = @[@"h1", @"h2", @"h3", @"h4"];
 
 }
 
 - (NSInteger)numberOfPages
 {
-    return 5;
+    return _images.count;
 }
 
 - (UIView *)pageAtIndex:(NSInteger)index
 {
-    UILabel *l = [[UILabel alloc] initWithFrame:(CGRect){0,0,kSCREEN_SIZE.width,150}];
-    l.text = [NSString stringWithFormat:@"%ld",(long)index];
-    l.font = [UIFont systemFontOfSize:72];
-    l.textAlignment = NSTextAlignmentCenter;
-    l.backgroundColor = [UIColor orangeColor];
-    return l;
+    UIImageView * imgView = [[UIImageView alloc] initWithFrame:(CGRect){0,0,kSCREEN_SIZE.width,150}];
+        imgView.image = [UIImage imageNamed:_images[index]];
+//    [imgView sd_setImageWithURL:[NSURL URLWithString:_cyclePics[index]] placeholderImage:[UIImage imageNamed:@"placeholder_640x260"]];
+    
+    return imgView;
 }
 
 - (void)cyclePicPlayer:(VCyclePicPlayer *)cyclePicPlayer atIndex:(NSInteger)index

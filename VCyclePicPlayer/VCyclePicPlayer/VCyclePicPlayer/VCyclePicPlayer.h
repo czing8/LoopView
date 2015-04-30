@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @protocol VCyclePicPlayerDelegate;
-@protocol VCyclePicPlayerDataSource;
 
 @interface VCyclePicPlayer : UIView<UIScrollViewDelegate> {
     UIScrollView *_scrollView;
@@ -26,9 +25,8 @@
 @property (nonatomic,readonly) UIPageControl *pageControl;
 @property (nonatomic,assign) NSInteger currentPage;
 
-@property (nonatomic,assign) BOOL isAutoPlay;
+@property (nonatomic,assign) BOOL isAutoPlay;   
 
-@property (nonatomic,assign,setter = setDataource:) id<VCyclePicPlayerDataSource> dataSource;
 @property (nonatomic,assign,setter = setDelegate:) id<VCyclePicPlayerDelegate> delegate;
 
 - (void)reloadData;
@@ -41,19 +39,13 @@
 @protocol VCyclePicPlayerDelegate <NSObject>
 
 @optional
-- (void)cyclePicPlayer:(VCyclePicPlayer *)cyclePicPlayer atIndex:(NSInteger)index;
-@end
-
-@protocol VCyclePicPlayerDataSource <NSObject>
-
-@required
 
 - (NSInteger)numberOfPages;
 - (UIView *)pageAtIndex:(NSInteger)index;
 
+
+- (void)cyclePicPlayer:(VCyclePicPlayer *)cyclePicPlayer atIndex:(NSInteger)index;
 @end
-
-
 
 
 
