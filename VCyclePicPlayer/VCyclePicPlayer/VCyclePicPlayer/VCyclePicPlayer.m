@@ -59,10 +59,32 @@
     CGRect rect = self.bounds;
     rect.origin.y = rect.size.height - 30;
     rect.size.height = 30;
+    
+    
+//    if (_pageControl) [_pageControl removeFromSuperview]; // 重新加载数据时调整
+    _pageControl = [[TAPageControl alloc] initWithFrame:rect];
+    _pageControl.dotColor = self.dotColor;
+
+    /* 系统的pageControl
     _pageControl = [[UIPageControl alloc] initWithFrame:rect];
     _pageControl.userInteractionEnabled = NO;
+     */
     
     [self addSubview:_pageControl];
+}
+
+- (void)setPageControlDotSize:(CGSize)pageControlDotSize{
+    
+    NSLog(@"%f", pageControlDotSize.width);
+    
+    _pageControlDotSize = pageControlDotSize;
+//    _pageControl.dotSize = pageControlDotSize;
+}
+
+- (void)setDotColor:(UIColor *)dotColor
+{
+    _dotColor = dotColor;
+    _pageControl.dotColor = dotColor;
 }
 
 - (void)setDelegate:(id<VCyclePicPlayerDelegate>)delegate{
@@ -217,6 +239,5 @@
         _timer = nil;
     }
 }
-
 
 @end

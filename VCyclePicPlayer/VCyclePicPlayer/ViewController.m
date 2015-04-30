@@ -38,7 +38,9 @@
     [super viewDidLoad];
 //    _cyclePicPlayer.isAutoPlay = YES;
     _images = @[@"h1", @"h2", @"h3", @"h4"];
-
+    
+    _cyclePicPlayer.dotColor = [UIColor yellowColor]; // 自定义分页控件小圆标颜色
+    _cyclePicPlayer.pageControlDotSize = CGSizeMake(5, 5);
 }
 
 - (NSInteger)numberOfPages

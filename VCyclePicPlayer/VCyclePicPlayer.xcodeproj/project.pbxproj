@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F109BE0C1AF2102200F3938D /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = F109BE051AF2102200F3938D /* TAAbstractDotView.m */; };
+		F109BE0D1AF2102200F3938D /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = F109BE071AF2102200F3938D /* TAAnimatedDotView.m */; };
+		F109BE0E1AF2102200F3938D /* TADotView.m in Sources */ = {isa = PBXBuildFile; fileRef = F109BE091AF2102200F3938D /* TADotView.m */; };
+		F109BE0F1AF2102200F3938D /* TAPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = F109BE0B1AF2102200F3938D /* TAPageControl.m */; };
 		F1DA706F1AB94ADD005DEB06 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DA706E1AB94ADD005DEB06 /* main.m */; };
 		F1DA70721AB94ADD005DEB06 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DA70711AB94ADD005DEB06 /* AppDelegate.m */; };
 		F1DA70751AB94ADD005DEB06 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DA70741AB94ADD005DEB06 /* ViewController.m */; };
@@ -28,6 +32,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F109BE041AF2102200F3938D /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
+		F109BE051AF2102200F3938D /* TAAbstractDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAbstractDotView.m; sourceTree = "<group>"; };
+		F109BE061AF2102200F3938D /* TAAnimatedDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAnimatedDotView.h; sourceTree = "<group>"; };
+		F109BE071AF2102200F3938D /* TAAnimatedDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAnimatedDotView.m; sourceTree = "<group>"; };
+		F109BE081AF2102200F3938D /* TADotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TADotView.h; sourceTree = "<group>"; };
+		F109BE091AF2102200F3938D /* TADotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TADotView.m; sourceTree = "<group>"; };
+		F109BE0A1AF2102200F3938D /* TAPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAPageControl.h; sourceTree = "<group>"; };
+		F109BE0B1AF2102200F3938D /* TAPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAPageControl.m; sourceTree = "<group>"; };
 		F1DA70691AB94ADD005DEB06 /* VCyclePicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VCyclePicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1DA706D1AB94ADD005DEB06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1DA706E1AB94ADD005DEB06 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -63,6 +75,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F109BE031AF2102200F3938D /* PageControl */ = {
+			isa = PBXGroup;
+			children = (
+				F109BE041AF2102200F3938D /* TAAbstractDotView.h */,
+				F109BE051AF2102200F3938D /* TAAbstractDotView.m */,
+				F109BE061AF2102200F3938D /* TAAnimatedDotView.h */,
+				F109BE071AF2102200F3938D /* TAAnimatedDotView.m */,
+				F109BE081AF2102200F3938D /* TADotView.h */,
+				F109BE091AF2102200F3938D /* TADotView.m */,
+				F109BE0A1AF2102200F3938D /* TAPageControl.h */,
+				F109BE0B1AF2102200F3938D /* TAPageControl.m */,
+			);
+			path = PageControl;
+			sourceTree = "<group>";
+		};
 		F1DA70601AB94ADD005DEB06 = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +111,7 @@
 		F1DA706B1AB94ADD005DEB06 /* VCyclePicPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				F109BE031AF2102200F3938D /* PageControl */,
 				F1DA70921AB94AED005DEB06 /* VCyclePicPlayer */,
 				F1DA70701AB94ADD005DEB06 /* AppDelegate.h */,
 				F1DA70711AB94ADD005DEB06 /* AppDelegate.m */,
@@ -233,7 +261,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1DA70751AB94ADD005DEB06 /* ViewController.m in Sources */,
+				F109BE0E1AF2102200F3938D /* TADotView.m in Sources */,
+				F109BE0C1AF2102200F3938D /* TAAbstractDotView.m in Sources */,
+				F109BE0D1AF2102200F3938D /* TAAnimatedDotView.m in Sources */,
 				F1DA70721AB94ADD005DEB06 /* AppDelegate.m in Sources */,
+				F109BE0F1AF2102200F3938D /* TAPageControl.m in Sources */,
 				F1DA706F1AB94ADD005DEB06 /* main.m in Sources */,
 				F1DA70951AB94B08005DEB06 /* VCyclePicPlayer.m in Sources */,
 			);
@@ -426,6 +458,7 @@
 				F1DA708E1AB94ADD005DEB06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F1DA708F1AB94ADD005DEB06 /* Build configuration list for PBXNativeTarget "VCyclePicPlayerTests" */ = {
 			isa = XCConfigurationList;
@@ -434,6 +467,7 @@
 				F1DA70911AB94ADD005DEB06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
