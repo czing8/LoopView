@@ -41,6 +41,10 @@
 
 - (void)setViewContent:(UIView *)view atIndex:(NSInteger)index;
 
+
+- (void)stopPlay;
+- (void)startPlay;
+
 @end
 
 

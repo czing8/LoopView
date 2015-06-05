@@ -5,16 +5,16 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>63D720A7-D1B2-4F71-A2DA-7D8D86E80305</string>
+	<string>3FF068B3-D2E5-43C9-8F46-EC8CF604B972</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>VCyclePicPlayer_2</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>8A9F8852BBDACE6B02555345697548E9F19CF73D</key>
 		<string>https://github.com/volcs/VCyclePicPlayer.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>VCyclePicPlayer/VCyclePicPlayer.xcodeproj/project.xcworkspace</string>
+	<string>VCyclePicPlayer_2/VCyclePicPlayer_2.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>8A9F8852BBDACE6B02555345697548E9F19CF73D</key>

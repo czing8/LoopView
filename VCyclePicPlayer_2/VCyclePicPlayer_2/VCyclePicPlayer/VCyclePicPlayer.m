@@ -29,15 +29,15 @@
     return self;
 }
 
-/*
+
 //Storyborad 直接调用VCyclePicPlayer会从这个函数开始（初始化）eg,在4.7寸里获取的是320，而不是375，so initWithCoder获取的是自动适配前的元素。
-- (id)initWithCoder:(NSCoder *)aDecoder {
-    if (self = [super initWithCoder:aDecoder]) {
-        [self initialization];
-    }
-    return self;
-}
-*/
+//- (id)initWithCoder:(NSCoder *)aDecoder {
+//    if (self = [super initWithCoder:aDecoder]) {
+//        [self displayUI];
+//    }
+//    return self;
+//}
+
 
 //Storyborad 直接调用VCyclePicPlayer会从这个函数开始（初始化）
 - (void)layoutSubviews{
@@ -62,13 +62,30 @@
     _pageControl.userInteractionEnabled = NO;
     
     [self addSubview:_pageControl];
-}
-
-- (void)setDelegate:(id<VCyclePicPlayerDelegate>)delegate{
-    _delegate = delegate;
     
     [self reloadData];
-    [self autoPlayPic];
+}
+
+
+
+
+#pragma mark - public
+
+- (void)stopPlay{
+    [_timer invalidate];
+    _timer = nil;
+}
+
+- (void)startPlay{
+    if (_isAutoPlay)  [self autoPlayPic];
+}
+
+#pragma mark - setter/getter
+
+- (void)setIsAutoPlay:(BOOL)isAutoPlay{
+    _isAutoPlay = isAutoPlay;
+    
+    if (_isAutoPlay)  [self autoPlayPic];
 }
 
 - (void)reloadData{

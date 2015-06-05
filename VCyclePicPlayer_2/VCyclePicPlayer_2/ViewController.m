@@ -21,30 +21,30 @@
 
 @implementation ViewController
 
-//delegate要在viewDidAppear里设置，优先级（印象：* * Storyboard）
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    
-    _cyclePicPlayer.delegate = self;
-}
-
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    _cyclePicPlayer.delegate = self;   //多添加一次，不然第一页空白。
+    if (_cyclePicPlayer)  [_cyclePicPlayer startPlay];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    if (_cyclePicPlayer)  [_cyclePicPlayer stopPlay];
 }
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-
+    
+    _cyclePicPlayer.delegate = self;
     _cyclePicPlayer.isAutoPlay = YES;
     _images = @[@"h1", @"h2", @"h3", @"h4"];
 }
 
 
-
+#pragma mark - CycleDelegate
 
 - (NSInteger)numberOfPages
 {
@@ -70,6 +70,8 @@
     [alert show];
 }
 
+
+#pragma mark -
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
