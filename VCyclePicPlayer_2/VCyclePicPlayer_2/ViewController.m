@@ -16,7 +16,6 @@
 @property (weak, nonatomic) IBOutlet VCyclePicPlayer *cyclePicPlayer;
 @property (nonatomic, strong) NSArray * images;
 
-
 @end
 
 @implementation ViewController
@@ -37,7 +36,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _images = @[@"h1", @"h2", @"h3", @"h4"];
+    _images = @[@"h1", @"h2", @"h3", @"h4"];  //必须在delegate之前实例化，参考tableView 数据源
 
     _cyclePicPlayer.delegate = self;
     _cyclePicPlayer.isAutoPlay = YES;
