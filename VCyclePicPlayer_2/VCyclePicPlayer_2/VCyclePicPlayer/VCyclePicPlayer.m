@@ -201,7 +201,7 @@
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    [self autoPlayPic];
+    if (_isAutoPlay)  [self autoPlayPic];
 }
 
 

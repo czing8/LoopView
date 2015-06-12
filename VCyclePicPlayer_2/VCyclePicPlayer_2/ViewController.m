@@ -37,10 +37,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    _images = @[@"h1", @"h2", @"h3", @"h4"];
+
     _cyclePicPlayer.delegate = self;
     _cyclePicPlayer.isAutoPlay = YES;
-    _images = @[@"h1", @"h2", @"h3", @"h4"];
 }
 
 
