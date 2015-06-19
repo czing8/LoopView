@@ -67,8 +67,6 @@
 }
 
 
-
-
 #pragma mark - public
 
 - (void)stopPlay{
@@ -92,9 +90,8 @@
     _curPage = 0;
     _totalPages = [_delegate numberOfPages];
     
-    if (_totalPages == 0) {
-        return;
-    }
+    if (_totalPages == 0) return;
+    
     _pageControl.numberOfPages = _totalPages;
     [self loadData];
 }
@@ -130,9 +127,7 @@
     NSInteger pre = [self validPageValue:_curPage-1];
     NSInteger last = [self validPageValue:_curPage+1];
     
-    if (!_curViews) {
-        _curViews = [[NSMutableArray alloc] init];
-    }
+    if (!_curViews) _curViews = [[NSMutableArray alloc] init];
     
     [_curViews removeAllObjects];
     
@@ -173,6 +168,8 @@
     }
 }
 
+
+#pragma mark - AutoPlay Methods
 - (void)autoPlayPic{
     [_timer invalidate];
     _timer = nil;
