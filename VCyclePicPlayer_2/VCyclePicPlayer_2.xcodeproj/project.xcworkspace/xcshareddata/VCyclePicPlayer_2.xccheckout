@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>3FF068B3-D2E5-43C9-8F46-EC8CF604B972</string>
 	<key>IDESourceControlProjectName</key>
-	<string>VCyclePicPlayer_2</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>8A9F8852BBDACE6B02555345697548E9F19CF73D</key>
 		<string>https://github.com/volcs/VCyclePicPlayer.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>VCyclePicPlayer_2/VCyclePicPlayer_2.xcodeproj</string>
+	<string>VCyclePicPlayer_2/VCyclePicPlayer_2.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>8A9F8852BBDACE6B02555345697548E9F19CF73D</key>
