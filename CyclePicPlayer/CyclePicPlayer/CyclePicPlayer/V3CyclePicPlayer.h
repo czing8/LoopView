@@ -1,5 +1,5 @@
 //
-//  VCycle1PicPlayer.h
+//  V3CyclePicPlayer.h
 //  CyclePicPlayer
 //
 //  Created by Vols on 2015/11/1.
@@ -19,7 +19,7 @@ typedef NS_ENUM(NSInteger, VCyclePageType) {
 typedef void(^ClickHandler)(NSInteger index);
 
 
-@interface VCycle1PicPlayer : UIView
+@interface V3CyclePicPlayer : UIView
 
 @property (nonatomic, assign)   VCyclePageType pageType;
 
@@ -70,19 +70,11 @@ typedef void(^ClickHandler)(NSInteger index);
 -(id)initWithImageUrls:(NSArray *)imageUrls autoTimerInterval:(NSTimeInterval)timeInterval click:(ClickHandler)block;
 
 
-/**
- *  更换图片地址
- *
- *  @param imageUrls    图片地址
- */
+/** 更换图片网络URL  */
 -(void)replaceImageUrls:(NSArray *)imageUrls click:(ClickHandler)block;
 
 
-/**
- *  更换图片
- *
- *  @param imageNames   图片文件名
- */
+/** 更换图片本地名字 */
 -(void)replaceImageNames:(NSArray *)imageNames click:(ClickHandler)block;
 
 @end

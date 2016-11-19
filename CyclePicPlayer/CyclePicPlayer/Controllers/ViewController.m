@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "Example1Controller.h"
 #import "Example2Controller.h"
+#import "Example3Controller.h"
 
 @interface ViewController ()
 
@@ -27,12 +28,9 @@
     [self initData];
 }
 
-- (void)initData{
-    _dataSource = @[@"Style1 --> 没有复用，使用Masonry", @"Style2 --> 借鉴tableview（3个视图实现）"];
-
+- (void)initData {
+    _dataSource = @[@"复用3个imageView", @"借鉴tableview方式实现复用", @"普通方式"];
 }
-
-
 
 
 #pragma mark - UITableViewDelegate Methods
@@ -46,8 +44,7 @@
     return _dataSource.count;
 }
 
-- (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString * identifier = @"cell_identifier";
     
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
@@ -57,15 +54,9 @@
     }
     
     [cell.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
- 
     cell.textLabel.text = _dataSource[indexPath.row];
     
     return cell;
-}
-
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return @"轮播图";
 }
 
 
@@ -79,7 +70,10 @@
         Example2Controller * exampleVC = [[Example2Controller alloc] init];
         [self.navigationController pushViewController:exampleVC animated:YES];
     }
-    
+    else if (indexPath.row == 2) {
+        Example3Controller * exampleVC = [[Example3Controller alloc] init];
+        [self.navigationController pushViewController:exampleVC animated:YES];
+    }
     [self performSelector:@selector(deselect:) withObject:tableView afterDelay:0.2f];
 }
 

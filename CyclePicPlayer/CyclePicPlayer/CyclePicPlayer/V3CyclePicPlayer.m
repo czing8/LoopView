@@ -1,12 +1,12 @@
 //
-//  VCycle1PicPlayer.m
+//  V3CyclePicPlayer.m
 //  CyclePicPlayer
 //
 //  Created by Vols on 2015/11/1.
 //  Copyright © 2015年 vols. All rights reserved.
 //
 
-#import "VCycle1PicPlayer.h"
+#import "V3CyclePicPlayer.h"
 #import "UIImageView+WebCache.h"
 
 @interface BannerScroll : UIScrollView
@@ -32,7 +32,7 @@
 @end
 
 
-@interface VCycle1PicPlayer ()<UIScrollViewDelegate> {
+@interface V3CyclePicPlayer ()<UIScrollViewDelegate> {
     NSInteger pageCount;
     NSTimeInterval autoTimeInterval;
 }
@@ -48,7 +48,7 @@
 
 @end
 
-@implementation VCycle1PicPlayer
+@implementation V3CyclePicPlayer
 
 
 -(id)initWithImageNames:(NSArray *)imageNames click:(ClickHandler)block {
@@ -225,8 +225,7 @@
 }
 
 //返回图片
--(UIImageView *)addImageViewIndex:(NSInteger)i lastView:(UIImageView *)lastImageView
-{
+-(UIImageView *)addImageViewIndex:(NSInteger)i lastView:(UIImageView *)lastImageView {
     UIImageView *imageView = [[UIImageView alloc] init];
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     [_contentView addSubview:imageView];
@@ -247,24 +246,20 @@
     return imageView;
 }
 //滚动视图滑动
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-{
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     [self endAutoChange];
 }
 
 
 //滚动视图释放滚动
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-{
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     NSInteger currentIndex = scrollView.contentOffset.x/self.scrollView.frame.size.width;
     
-    if (currentIndex==0)
-    {
+    if (currentIndex==0)  {
         currentIndex = pageCount - 1;
         [self.scrollView setContentOffset:CGPointMake(_scrollView.frame.size.width * pageCount, 0) animated:NO];// 序号0 最后1页
     }
-    else if (currentIndex == (pageCount+1))
-    {
+    else if (currentIndex == (pageCount+1)) {
         currentIndex = 0;
         [self.scrollView setContentOffset:CGPointMake(_scrollView.frame.size.width, 0) animated:NO]; // 最后+1,循环第1页
     }else{
@@ -277,8 +272,7 @@
 }
 
 //UIPageControl 索引改变
--(void)pageChange:(UIPageControl *)pageControl
-{
+-(void)pageChange:(UIPageControl *)pageControl {
     //    NSInteger page = pageControl.currentPage;
     //
     //    [self.scrollView setContentOffset:CGPointMake(_scrollView.frame.size.width * page, 0) animated:YES];
@@ -288,8 +282,7 @@
 }
 
 //开始自动切换
--(void)beginAutoChange
-{
+-(void)beginAutoChange {
     if (pageCount <= 1) {
         return;
     }
@@ -301,8 +294,7 @@
     self.timer = [NSTimer scheduledTimerWithTimeInterval:autoTimeInterval target:self selector:@selector(changeScrollPage) userInfo:nil repeats:YES];
 }
 
--(void)changeScrollPage
-{
+-(void)changeScrollPage {
     NSInteger currentIndex = (int)_scrollView.contentOffset.x/_scrollView.frame.size.width;
     
     if (currentIndex < pageCount + 1) {
@@ -317,12 +309,10 @@
         }
     }];
     
-    if (currentIndex==0)
-    {
+    if (currentIndex==0) {
         currentIndex = pageCount - 1;
     }
-    else if (currentIndex == (pageCount+1))
-    {
+    else if (currentIndex == (pageCount+1))  {
         currentIndex = 0;
     }else{
         currentIndex --;
@@ -357,11 +347,8 @@
     }
 }
 
-
-
-
 -(UIScrollView *)scrollView {
-    if (!_scrollView) {
+    if (_scrollView == nil) {
         _scrollView = [[BannerScroll alloc] initWithFrame:self.bounds];
         _scrollView.pagingEnabled = YES;
         _scrollView.delegate = self;
@@ -377,7 +364,7 @@
 
 
 -(UIPageControl *)pageControl {
-    if (!_pageControl) {
+    if (_pageControl == nil) {
         _pageControl = [[UIPageControl alloc] init];
         _pageControl.numberOfPages = pageCount;
         _pageControl.hidden = pageCount <= 1;

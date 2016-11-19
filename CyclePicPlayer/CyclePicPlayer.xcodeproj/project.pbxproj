@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F15801C51DC9836F0022541F /* VCycle1PicPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F15801C21DC9836F0022541F /* VCycle1PicPlayer.m */; };
-		F15801C91DC985410022541F /* VCycle2PicPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F15801C81DC985410022541F /* VCycle2PicPlayer.m */; };
+		F13ED5FC1DDEF62B00F8DFF3 /* VCyclePicPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F13ED5FB1DDEF62B00F8DFF3 /* VCyclePicPlayer.m */; };
+		F1489A4E1DE00002000AD269 /* Example3Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = F1489A4D1DE00002000AD269 /* Example3Controller.m */; };
+		F15801C51DC9836F0022541F /* V3CyclePicPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F15801C21DC9836F0022541F /* V3CyclePicPlayer.m */; };
+		F15801C91DC985410022541F /* V2CyclePicPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F15801C81DC985410022541F /* V2CyclePicPlayer.m */; };
 		F15802361DC9AE200022541F /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = F15801F91DC9AE200022541F /* MASCompositeConstraint.m */; };
 		F15802371DC9AE200022541F /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = F15801FC1DC9AE200022541F /* MASConstraint.m */; };
 		F15802381DC9AE200022541F /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = F15801FE1DC9AE200022541F /* MASConstraintMaker.m */; };
@@ -44,10 +46,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F15801C11DC9836F0022541F /* VCycle1PicPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCycle1PicPlayer.h; sourceTree = "<group>"; };
-		F15801C21DC9836F0022541F /* VCycle1PicPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCycle1PicPlayer.m; sourceTree = "<group>"; };
-		F15801C71DC985410022541F /* VCycle2PicPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCycle2PicPlayer.h; sourceTree = "<group>"; };
-		F15801C81DC985410022541F /* VCycle2PicPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCycle2PicPlayer.m; sourceTree = "<group>"; };
+		F13ED5FA1DDEF62B00F8DFF3 /* VCyclePicPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCyclePicPlayer.h; sourceTree = "<group>"; };
+		F13ED5FB1DDEF62B00F8DFF3 /* VCyclePicPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCyclePicPlayer.m; sourceTree = "<group>"; };
+		F1489A4C1DE00002000AD269 /* Example3Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Example3Controller.h; sourceTree = "<group>"; };
+		F1489A4D1DE00002000AD269 /* Example3Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Example3Controller.m; sourceTree = "<group>"; };
+		F15801C11DC9836F0022541F /* V3CyclePicPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V3CyclePicPlayer.h; sourceTree = "<group>"; };
+		F15801C21DC9836F0022541F /* V3CyclePicPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = V3CyclePicPlayer.m; sourceTree = "<group>"; };
+		F15801C71DC985410022541F /* V2CyclePicPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V2CyclePicPlayer.h; sourceTree = "<group>"; };
+		F15801C81DC985410022541F /* V2CyclePicPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = V2CyclePicPlayer.m; sourceTree = "<group>"; };
 		F15801F81DC9AE200022541F /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		F15801F91DC9AE200022541F /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
 		F15801FA1DC9AE200022541F /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
@@ -132,10 +138,12 @@
 		F15801C01DC9836F0022541F /* CyclePicPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				F15801C11DC9836F0022541F /* VCycle1PicPlayer.h */,
-				F15801C21DC9836F0022541F /* VCycle1PicPlayer.m */,
-				F15801C71DC985410022541F /* VCycle2PicPlayer.h */,
-				F15801C81DC985410022541F /* VCycle2PicPlayer.m */,
+				F13ED5FA1DDEF62B00F8DFF3 /* VCyclePicPlayer.h */,
+				F13ED5FB1DDEF62B00F8DFF3 /* VCyclePicPlayer.m */,
+				F15801C71DC985410022541F /* V2CyclePicPlayer.h */,
+				F15801C81DC985410022541F /* V2CyclePicPlayer.m */,
+				F15801C11DC9836F0022541F /* V3CyclePicPlayer.h */,
+				F15801C21DC9836F0022541F /* V3CyclePicPlayer.m */,
 			);
 			path = CyclePicPlayer;
 			sourceTree = "<group>";
@@ -220,12 +228,14 @@
 		F158022F1DC9AE200022541F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F15802341DC9AE200022541F /* ViewController.h */,
+				F15802351DC9AE200022541F /* ViewController.m */,
 				F15802301DC9AE200022541F /* Example1Controller.h */,
 				F15802311DC9AE200022541F /* Example1Controller.m */,
 				F15802321DC9AE200022541F /* Example2Controller.h */,
 				F15802331DC9AE200022541F /* Example2Controller.m */,
-				F15802341DC9AE200022541F /* ViewController.h */,
-				F15802351DC9AE200022541F /* ViewController.m */,
+				F1489A4C1DE00002000AD269 /* Example3Controller.h */,
+				F1489A4D1DE00002000AD269 /* Example3Controller.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -359,10 +369,10 @@
 				F158024B1DC9AE200022541F /* UIImageView+HighlightedWebCache.m in Sources */,
 				F15802421DC9AE200022541F /* SDWebImageCompat.m in Sources */,
 				F15802401DC9AE200022541F /* NSData+ImageContentType.m in Sources */,
-				F15801C91DC985410022541F /* VCycle2PicPlayer.m in Sources */,
+				F15801C91DC985410022541F /* V2CyclePicPlayer.m in Sources */,
 				F15802461DC9AE200022541F /* SDWebImageManager.m in Sources */,
 				F15802441DC9AE200022541F /* SDWebImageDownloader.m in Sources */,
-				F15801C51DC9836F0022541F /* VCycle1PicPlayer.m in Sources */,
+				F15801C51DC9836F0022541F /* V3CyclePicPlayer.m in Sources */,
 				F15802491DC9AE200022541F /* UIImage+GIF.m in Sources */,
 				F15802361DC9AE200022541F /* MASCompositeConstraint.m in Sources */,
 				F15802471DC9AE200022541F /* SDWebImagePrefetcher.m in Sources */,
@@ -370,10 +380,12 @@
 				F15802501DC9AE200022541F /* ViewController.m in Sources */,
 				F158024C1DC9AE200022541F /* UIImageView+WebCache.m in Sources */,
 				F158024D1DC9AE200022541F /* UIView+WebCacheOperation.m in Sources */,
+				F1489A4E1DE00002000AD269 /* Example3Controller.m in Sources */,
 				F158024E1DC9AE200022541F /* Example1Controller.m in Sources */,
 				F158024A1DC9AE200022541F /* UIImage+MultiFormat.m in Sources */,
 				F15802431DC9AE200022541F /* SDWebImageDecoder.m in Sources */,
 				F158023D1DC9AE200022541F /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				F13ED5FC1DDEF62B00F8DFF3 /* VCyclePicPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,7 +451,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -480,7 +492,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -493,6 +505,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = DCULVL94ZE;
 				INFOPLIST_FILE = CyclePicPlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vols.CyclePicPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -505,6 +518,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = DCULVL94ZE;
 				INFOPLIST_FILE = CyclePicPlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vols.CyclePicPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
