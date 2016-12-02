@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		F13ED5FC1DDEF62B00F8DFF3 /* VCyclePicPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F13ED5FB1DDEF62B00F8DFF3 /* VCyclePicPlayer.m */; };
-		F1489A4E1DE00002000AD269 /* Example3Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = F1489A4D1DE00002000AD269 /* Example3Controller.m */; };
-		F15801C51DC9836F0022541F /* V3CyclePicPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F15801C21DC9836F0022541F /* V3CyclePicPlayer.m */; };
 		F15801C91DC985410022541F /* V2CyclePicPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F15801C81DC985410022541F /* V2CyclePicPlayer.m */; };
 		F15802361DC9AE200022541F /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = F15801F91DC9AE200022541F /* MASCompositeConstraint.m */; };
 		F15802371DC9AE200022541F /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = F15801FC1DC9AE200022541F /* MASConstraint.m */; };
@@ -48,10 +46,6 @@
 /* Begin PBXFileReference section */
 		F13ED5FA1DDEF62B00F8DFF3 /* VCyclePicPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCyclePicPlayer.h; sourceTree = "<group>"; };
 		F13ED5FB1DDEF62B00F8DFF3 /* VCyclePicPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCyclePicPlayer.m; sourceTree = "<group>"; };
-		F1489A4C1DE00002000AD269 /* Example3Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Example3Controller.h; sourceTree = "<group>"; };
-		F1489A4D1DE00002000AD269 /* Example3Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Example3Controller.m; sourceTree = "<group>"; };
-		F15801C11DC9836F0022541F /* V3CyclePicPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V3CyclePicPlayer.h; sourceTree = "<group>"; };
-		F15801C21DC9836F0022541F /* V3CyclePicPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = V3CyclePicPlayer.m; sourceTree = "<group>"; };
 		F15801C71DC985410022541F /* V2CyclePicPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V2CyclePicPlayer.h; sourceTree = "<group>"; };
 		F15801C81DC985410022541F /* V2CyclePicPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = V2CyclePicPlayer.m; sourceTree = "<group>"; };
 		F15801F81DC9AE200022541F /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
@@ -142,8 +136,6 @@
 				F13ED5FB1DDEF62B00F8DFF3 /* VCyclePicPlayer.m */,
 				F15801C71DC985410022541F /* V2CyclePicPlayer.h */,
 				F15801C81DC985410022541F /* V2CyclePicPlayer.m */,
-				F15801C11DC9836F0022541F /* V3CyclePicPlayer.h */,
-				F15801C21DC9836F0022541F /* V3CyclePicPlayer.m */,
 			);
 			path = CyclePicPlayer;
 			sourceTree = "<group>";
@@ -234,8 +226,6 @@
 				F15802311DC9AE200022541F /* Example1Controller.m */,
 				F15802321DC9AE200022541F /* Example2Controller.h */,
 				F15802331DC9AE200022541F /* Example2Controller.m */,
-				F1489A4C1DE00002000AD269 /* Example3Controller.h */,
-				F1489A4D1DE00002000AD269 /* Example3Controller.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -372,7 +362,6 @@
 				F15801C91DC985410022541F /* V2CyclePicPlayer.m in Sources */,
 				F15802461DC9AE200022541F /* SDWebImageManager.m in Sources */,
 				F15802441DC9AE200022541F /* SDWebImageDownloader.m in Sources */,
-				F15801C51DC9836F0022541F /* V3CyclePicPlayer.m in Sources */,
 				F15802491DC9AE200022541F /* UIImage+GIF.m in Sources */,
 				F15802361DC9AE200022541F /* MASCompositeConstraint.m in Sources */,
 				F15802471DC9AE200022541F /* SDWebImagePrefetcher.m in Sources */,
@@ -380,7 +369,6 @@
 				F15802501DC9AE200022541F /* ViewController.m in Sources */,
 				F158024C1DC9AE200022541F /* UIImageView+WebCache.m in Sources */,
 				F158024D1DC9AE200022541F /* UIView+WebCacheOperation.m in Sources */,
-				F1489A4E1DE00002000AD269 /* Example3Controller.m in Sources */,
 				F158024E1DC9AE200022541F /* Example1Controller.m in Sources */,
 				F158024A1DC9AE200022541F /* UIImage+MultiFormat.m in Sources */,
 				F15802431DC9AE200022541F /* SDWebImageDecoder.m in Sources */,

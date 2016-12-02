@@ -17,7 +17,7 @@
     NSMutableArray  * _curViews;
     UIScrollView    * _scrollView;
     UIPageControl   * _pageControl;
-    NSTimer         *_timer;
+    NSTimer         * _timer;
 }
 
 @property (nonatomic, readonly) UIScrollView    * scrollView;
@@ -27,43 +27,39 @@
 
 @implementation V2CyclePicPlayer
 
-//代码方式初始化 init
+/** 代码方式初始化 */
 - (id)initWithFrame:(CGRect)frame{
-    
-    self = [super initWithFrame:frame];
-    if (self) {
-        _isAutoPlay     = YES;                  //默认自动播放
-        _timeInterval   = kTimerInterval;       //默认间隔时间
-        
-        [self addSubview:self.scrollView];
-        [self addSubview:self.pageControl];
+    if (self = [super initWithFrame:frame]) {
+        [self initialization];
     }
     return self;
 }
 
 
-//Storyborad 方式初始化 eg,在4.7寸里获取的是320，而不是375，so initWithCoder获取的是自动适配前的元素。
+/** Storyborad 方式初始化 eg,在4.7寸里获取的是320，而不是375，so initWithCoder获取的是自动适配前的元素。*/
 - (id)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super initWithCoder:aDecoder]) {
-        _isAutoPlay     = YES;                  //默认自动播放
-        _timeInterval   = kTimerInterval;       //默认间隔时间
-        
-        [self addSubview:self.scrollView];
-        [self addSubview:self.pageControl];
+        [self initialization];
     }
     return self;
 }
 
+- (void)initialization {
+    _isAutoPlay     = YES;  //默认自动播放
+    _timeInterval   = 2.f;  //默认间隔时间
+    
+    [self addSubview:self.scrollView];
+    [self addSubview:self.pageControl];
+}
 
 - (void)layoutSubviews {
 
 }
 
 
-
 #pragma mark - public
 
-/** 切换数据源后需要初始化一次 */
+// 当数据源变化时的初始化参数操作（类似tableView的更新数据源）,第一次创建时无需单独调用
 - (void)reloadData{
     _totalPages = [_delegate numberOfPages];
     if (_totalPages == 0)   return;
@@ -74,8 +70,8 @@
     [self refreshImage];
 }
 
-//初始化一个定时器
--(void)startPlay{
+
+-(void)startPlay {
     if (_timer == nil) {
         _timer = [[NSTimer alloc]initWithFireDate:[NSDate dateWithTimeIntervalSinceNow:self.timeInterval]
                                          interval:self.timeInterval
@@ -90,6 +86,8 @@
 
 
 - (void)stopPlay {
+    if (_timer == nil)  return;
+
     [_timer invalidate];
     _timer = nil;
 }
@@ -240,10 +238,11 @@
 }
 
 
-//解决当父View释放时，当前视图因为被Timer强引用而不能释放的问题
+// 解决当父View释放时，当前视图因为被Timer强引用而不能释放的问题 
 - (void)willMoveToSuperview:(UIView *)newSuperview {
     if (!newSuperview) {
-        [self stopPlay];
+        [_timer invalidate];
+        _timer = nil;
     }
 }
 

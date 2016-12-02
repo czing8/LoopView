@@ -9,7 +9,6 @@
 #import "ViewController.h"
 #import "Example1Controller.h"
 #import "Example2Controller.h"
-#import "Example3Controller.h"
 
 @interface ViewController ()
 
@@ -29,7 +28,7 @@
 }
 
 - (void)initData {
-    _dataSource = @[@"复用3个imageView", @"借鉴tableview方式实现复用", @"普通方式"];
+    _dataSource = @[@"1）三个imageView复用实现轮播", @"2）借鉴tableview方式实现复用"];
 }
 
 
@@ -70,17 +69,13 @@
         Example2Controller * exampleVC = [[Example2Controller alloc] init];
         [self.navigationController pushViewController:exampleVC animated:YES];
     }
-    else if (indexPath.row == 2) {
-        Example3Controller * exampleVC = [[Example3Controller alloc] init];
-        [self.navigationController pushViewController:exampleVC animated:YES];
-    }
+
     [self performSelector:@selector(deselect:) withObject:tableView afterDelay:0.2f];
 }
 
 - (void)deselect:(UITableView *)tableView {
     [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:YES];
 }
-
 
 
 - (void)didReceiveMemoryWarning {

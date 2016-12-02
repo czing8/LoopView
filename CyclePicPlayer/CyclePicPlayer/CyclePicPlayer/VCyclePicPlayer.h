@@ -8,25 +8,36 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSInteger, VPlayerImageType) {
-    ImageTypeFromLocal,
-    ImageTypeFromNet
+typedef NS_ENUM(NSInteger, VPlayerTransitionType) {
+    PlayerTransitionTypeNormal,
+    PlayerTransitionTypeRippleEffect,
 };
+
+typedef void(^ClickHandler)(NSUInteger index);
 
 @interface VCyclePicPlayer : UIView
 
-@property (nonatomic, assign) CGFloat timeInterval;
 @property (nonatomic, strong) NSArray *sourceArray;
-@property (nonatomic, assign) VPlayerImageType   imageType;
+@property (nonatomic, assign) CGFloat timeInterval;
+@property (nonatomic, assign) VPlayerTransitionType transitionType;
+
+@property (nonatomic, copy  ) ClickHandler clickHandler;
 
 
-@property (nonatomic, copy) void(^tapAction)(NSUInteger index);
+/**
+ *  默认间隔2秒， sourceType为网络图片, 切换无动画
+ */
++ (instancetype)playerWithFrame:(CGRect)frame sourceArray:(NSArray *)sourceArray;
 
-/** PlayerImageTypeFromNet类型时需要导入SDWebImage，实现.m里的代码 */
+/**
+ *  @param transitionType   切换动画类型
+ */
 + (instancetype)playerWithFrame:(CGRect)frame
-          sourceArray:(NSArray *)sourceArray
-               target:(id)target
-         timeInterval:(CGFloat)interval
-            imageType:(VPlayerImageType)imageType;
+                    sourceArray:(NSArray *)sourceArray
+                   timeInterval:(CGFloat)interval
+                 transitionType:(VPlayerTransitionType)transitionType;
+
+- (void)startTimer;
+- (void)stopTimer;
 
 @end

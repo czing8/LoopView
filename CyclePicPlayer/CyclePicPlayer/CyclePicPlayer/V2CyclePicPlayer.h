@@ -18,7 +18,7 @@
 @property (nonatomic, assign, setter = setDelegate:) id<VCyclePicPlayerDelegate> delegate;
 
 
-/** 更新数据源后需要初始化参数 */
+/** 当数据源变化时的初始化参数操作（类似tableView的更新数据源）,第一次创建时无需单独调用 */
 - (void)reloadData;
 
 - (void)setViewContent:(UIView *)view atIndex:(NSInteger)index;

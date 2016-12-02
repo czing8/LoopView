@@ -8,11 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-
 @interface Example2Controller : UIViewController
-
-
-
 
 
 @end
